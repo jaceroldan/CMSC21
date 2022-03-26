@@ -9,9 +9,11 @@ int main() {
     // array
     // int i1, i2, i3, i4, i5
     int i_array[5] = { 1, 5, 6, 7, 8 };
-    printf("Inside main: The memory address of arr: %p\n", i_array);
+    // 8, 5, 6, 7, 1
+    // printf("Inside main: The memory address of arr: %p\n", i_array);
     // printf("Inside main: \n i_array[0] is %i and i_array[4] is %i before calling function\n", i_array[0], i_array[4]);
-    printf("the value of the integer in i_array in the 1st position is %i at address %p\n", i_array[0], &i_array[0]);
+    // printf("the value of the integer in i_array in the 1st position is %i at address %p\n", i_array[0], &i_array[0]);
+    printf("The address of i_array is %p\n", &i_array);
     swapFirstAndLast(i_array, 5);
     // printf("Inside main: \n i_array[0] is %i and i_array[4] is %i after calling function\n", i_array[0], i_array[4]);
     // int j_array[5] = { 1, 5, 6, 7, 8 };
@@ -45,8 +47,9 @@ int main() {
 }
 
 void swapFirstAndLast(int A[], int length) {
+    printf("The address of i_array is %p\n", &A);
     int tmp = A[0];
     A[0] = A[length-1];
     A[length-1] = tmp;
-    printf("Inside swapFirstAndLast: The memory address of arr: %p\n", A);
+    // printf("Inside swapFirstAndLast: The memory address of arr: %p\n", A);
 }

@@ -15,9 +15,9 @@ int main() {
     printf("value of x_ptr: %p\t value of y_ptr: %p\n", x_ptr, y_ptr);
     // x_ptr = y_ptr;
     printf("value held by x_ptr: %i\n value held by y_ptr: %i\n", *x_ptr, *y_ptr);
-    x_ptr = NULL;
+    // x_ptr = NULL;
 
-    printf("value held by x_ptr: %i\n value held by y_ptr: %i\n", *x_ptr, *y_ptr);
+    // printf("value held by x_ptr: %i\n value held by y_ptr: %i\n", *x_ptr, *y_ptr);
 
     return 0;
 }

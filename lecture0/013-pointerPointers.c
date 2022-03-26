@@ -4,6 +4,7 @@ int main() {
     int a = 1, b = 31;
     int *aptr = &a, *bptr = &b;
     int **aptr_ptr = &aptr, **bptr_ptr = &bptr;
+    int ***aptr_ptr_ptr = &aptr_ptr, ***bptr_ptr_ptr = &bptr_ptr;
 
     printf("aptr and bptr: %p %p\n", aptr, bptr);
     printf("addresses aptr and bptr: %p %p\n", &aptr, &bptr);
