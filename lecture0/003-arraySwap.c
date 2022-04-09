@@ -46,6 +46,9 @@ int main() {
     return 0;
 }
 
+// [1 2 3 4 5]
+// [5 2 3 4 1]
+
 void swapFirstAndLast(int A[], int length) {
     printf("The address of i_array is %p\n", &A);
     int tmp = A[0];
