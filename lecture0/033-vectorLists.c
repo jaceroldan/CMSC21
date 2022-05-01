@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct {
     int size;
@@ -6,13 +7,64 @@ typedef struct {
     int *arr;
 } Vector;
 
-void initList(Vector* list);
-int getItem(Vector* list, int index);
-void setItem(Vector* list, int index, int item);
-void insertItem(Vector* list, int index, int item);
-int removeItem(Vector* list, int index);
+void initList(Vector*);
+int getItem(Vector*, int);
+void setItem(Vector*, int, int);
+void insertItem(Vector*, int, int);
+int removeItem(Vector*, int);
+void displayList(Vector);
 
 int main() {
+    Vector a;
+    initList(&a);
+
+    insertItem(&a, 0, 1);
+    insertItem(&a, 1, 2);
+    insertItem(&a, 2, 3);
+    insertItem(&a, 3, 4);
+    insertItem(&a, 4, 5);
+    insertItem(&a, 5, 6);
+    insertItem(&a, 6, 7);
+    insertItem(&a, 7, 8);
+    insertItem(&a, 8, 9);
+    insertItem(&a, 9, 10);
+
+    displayList(a);
+
+    insertItem(&a, 0, 1);
+    insertItem(&a, 1, 2);
+    insertItem(&a, 2, 3);
+    insertItem(&a, 3, 4);
+    insertItem(&a, 4, 5);
+    insertItem(&a, 5, 6);
+    insertItem(&a, 6, 7);
+    insertItem(&a, 7, 8);
+    insertItem(&a, 8, 9);
+    insertItem(&a, 9, 10);
+    displayList(a);
+
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    displayList(a);
+
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    removeItem(&a, 0);
+    displayList(a);
+
     return 0;
 }
 
@@ -55,7 +107,7 @@ void resize(Vector* list) {
 }
 
 void desize(Vector* list) {
-    int newCapacity = list->size / 3;
+    int newCapacity = list->capacity / 3;
     int *newArr = (int*) malloc(sizeof(int) * newCapacity);
 
     for(int i = 0; i < list->size; i++) {
@@ -88,7 +140,7 @@ void insertItem(Vector *list, int index, int item) {
 // [1,3,4,5,5]
 int removeItem(Vector *list, int index) {
     if (index >= 0 && index <= list->size - 1) {
-        if (list->capacity / 3 < list->size - 1) {
+        if (list->capacity / 3 >= list->size - 1) {
             desize(list);   
         }
         for (int i = index; i < list->size - 1; i++) {
@@ -96,5 +148,18 @@ int removeItem(Vector *list, int index) {
         }
 
         list->size--;
+
+        return 1;
     }
+
+    return 0;
+}
+
+void displayList(Vector list) {
+    for (int i = 0; i < list.size; i++) {
+        printf("%i ", list.arr[i]);
+    }
+
+    printf("\n");
+    printf("size = %i, capacity = %i\n", list.size, list.capacity);
 }
